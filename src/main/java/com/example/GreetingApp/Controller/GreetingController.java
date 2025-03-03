@@ -7,23 +7,32 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/greeting")
 public class GreetingController {
 
-    @GetMapping
-    public String getGreeting() {
-        return "{\"message\": \"Hello, World!\"}";
+    private final GreetingService greetingService;
+
+    public GreetingController(GreetingService greetingService) {
+        this.greetingService = greetingService;
     }
+
+    @GetMapping
+    public String getGreeting(
+            @RequestParam(required = false) String firstName,
+            @RequestParam(required = false) String lastName) {
+        return greetingService.getGreeting(firstName, lastName);
+    }
+
 
     @PostMapping
     public String createGreeting() {
-        return "{\"message\": \"Greeting Created!\"}";
+        return greetingService.createGreeting();
     }
 
     @PutMapping
     public String updateGreeting() {
-        return "{\"message\": \"Greeting Updated!\"}";
+        return greetingService.updateGreeting();
     }
 
     @DeleteMapping
     public String deleteGreeting() {
-        return "{\"message\": \"Greeting Deleted!\"}";
+        return greetingService.deleteGreeting();
     }
 }
