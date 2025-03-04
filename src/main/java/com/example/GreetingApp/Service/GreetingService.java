@@ -4,6 +4,8 @@ import com.example.GreetingApp.DTO.Greeting;
 import com.example.GreetingApp.Repository.GreetingRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class GreetingService {
     private final GreetingRepository greetingRepository;
@@ -25,6 +27,9 @@ public class GreetingService {
         } else {
             return "{\"message\": \"Hello, World!\"}";
         }
+    }
+    public Optional<Greeting> getGreetingById(Long id) {
+        return greetingRepository.findById(id);
     }
 
     public String createGreeting() {
