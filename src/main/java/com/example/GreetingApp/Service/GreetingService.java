@@ -1,6 +1,6 @@
 package com.example.GreetingApp.Service;
 
-import com.example.GreetingApp.DTO.Greeting;
+import com.example.GreetingApp.Model.Greeting;
 import com.example.GreetingApp.Repository.GreetingRepository;
 import org.springframework.stereotype.Service;
 

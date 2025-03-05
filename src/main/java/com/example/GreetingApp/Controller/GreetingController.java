@@ -1,6 +1,6 @@
 package com.example.GreetingApp.Controller;
 
-import com.example.GreetingApp.DTO.Greeting;
+import com.example.GreetingApp.Model.Greeting;
 import com.example.GreetingApp.Service.GreetingService;
 import org.springframework.web.bind.annotation.*;
 
